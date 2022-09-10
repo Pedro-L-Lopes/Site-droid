@@ -1,0 +1,228 @@
+/*UTF8 para não dar erro com os carcteres especiais*/
+@charset "UTF8";
+
+/*Importando um fonta do google fonts via link*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*Adicionando uma fonte baixada(src) e dando nome para chamar ela mais facil(android)*/
+@font-face {
+    font-family: 'android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+/*Usar variaveis para ficar mais facil a utilização e a futura manutenção*/
+:root{
+    --cor0: #ebe5c5;
+    --cor1: #c5ebd6;
+    --cor2: #83e1ad;
+    --cor3: #3ddc84;
+    --cor4: #2fa866;
+    --cor5: #1a5c37;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, Sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'android', cursive;
+}
+
+body{
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a{
+    text-decoration: none;
+}
+/*Colocar um emoji depois (::after) em todos os links  (a) com a classe externo*/
+a.externo::after{
+    content: '\00A0\1F517';
+}
+
+a{
+    font-family: var(--fonte-padrao);
+}
+/*O minimo que o header diminui é até 150px*/
+header{
+    min-height: 150px;
+    text-align: center;
+    background-image: linear-gradient(to bottom, var(--cor4), var(--cor5));
+    padding-top: 40px;
+}
+
+header > h1{
+    color: white;
+    font-family: var(--fonte-destaque);
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 3em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.369);
+}
+
+header > p{
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: white;
+    max-width: 500px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.369);
+}
+
+nav{
+    font-family: var(--fonte-padrao);
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.192);
+}
+
+nav > a{
+    color: var(--cor1);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Todos os links ao  passar o mouse por cima ou serem clicados no celular mudaram de cor e terão uma transição de 0.5 segundos*/
+nav > a:hover{
+    background-color: var(--cor3);
+    color: var(--cor5);
+    border-radius: 5px;
+    transition-duration: 0.5;
+}
+
+/*Todo conteudo do main diminuira só até 320px e aumentara a´te 800px para evitar erros ou desconforto.
+border-bottom(left e right)-radius é para arredondar somente as partes de baixo deixando as de cima retas*/
+main{
+    background-color: white;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    min-width: 320px;
+    max-width: 800px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1{
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+/*A propriedade 'transparent' no codigo abaixo faz ir da cor desjada até a transparencia total*/
+main h2{
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-weight: normal;
+    font: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 2px;
+}
+
+main p{
+    margin: 15px 0;
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 1em;
+    line-height: 2em;
+}
+
+main a{
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+/*Todo link ao ser passado o mouse voltara a ter o underline*/
+main a:hover{
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main strong{
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+img{
+    width: 100%;
+}
+
+/*A foto na classe 'pequena' se expandira até no maximo 350px
+o display agora é block
+e a marginauto fara sempre ir para o mei da tela*/
+.pequena{
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+
+/*'Gambiara' para centralizar videos diretos de um site de streaming*/
+div.video{
+    background-color: var(--cor5);
+    margin: 0 -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 59%;
+
+    position: relative;
+}
+
+div.video > iframe{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside{
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.192);
+}
+
+aside > h3{
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0 0;
+}
+
+/*List type:\2714(Emoji na frente)\00A0(espaço entre ele e a lista);
+List-position: inside; para a lista ficar dentro da div(aside)*/
+aside > ul{
+    list-style-type: '\2714\00A0\00A0';
+    list-style-position: inside;
+    columns: 2;
+}
+
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8;
+    padding: 5px;
+}
+
+footer a{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
